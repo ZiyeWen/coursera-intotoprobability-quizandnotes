@@ -1,0 +1,105 @@
+
+At any given time about 5.5% of women (age 15-45) are pregnant. A home pregnancy test is accurate 99% of the time if the woman taking the test is actually pregnant and 99.5% accurate if the woman is not pregnant. If the test yields a positive result, what is the posterior probability of the hypothesis that the woman is pregnant?
+# Let Probability that women is pregnant, P(A) = 0.055
+# Probability that women is not pregnant, P(A') = 1 - P(A) = 1 - 0.055 = 0.945
+# Also, Let B be the event that test is positive;
+# Probability that pregnancy test is positive given that the woman is actually pregnant, P(B/A) = 0.99
+# Probability that pregnancy test is positive given that the woman is not actually pregnant, P(B/A') = 1 - 0.995 = 0.005
+# Now, we have to find that if the test yields a positive result what is the posterior probability that the woman is pregnant i.e.; P(A/B)
+# Using Bayes' Theorem we get
+# P(A/B) =(P(A)*P(B|A))/((P(A)*P(B|A)+ P(A')*P(B/A') )=0.92
+
+
+Your boss is a biologist who needs wood samples from long-leaf pine trees with a fungal disease which is only visible under a microscope, and she sends you on an assignment to collect the samples. She wants at least 50 different diseased samples. She tells you that approximately 28% of long-leaf pine trees currently have the fungal disease. If you sample 160 long-leaf pine trees at random, what is the probability you’ll have at least 50 diseased samples to return to your boss?
+# μ=np=160*0.28=44.8
+# σ=\sqrt{npq} = \sqrt{160*0.28*(1-0.72)} = 5.7
+# P(x≥50)=1-P(x<50)
+# P(x<50), z=(50-44.8)/5.7=0.91, using table P(x<50)=0.81859
+# P(x≥50)=1-0.81859=0.18
+
+
+About 30% of human twins are identical, and the rest are fraternal. Identical twins are necessarily the same sex, half are males and the other half are females. One-quarter of fraternal twins are both male, one-quarter both female, and one-half are mixes: one male, one female. You have just become a parent of twins and are told they are both girls. Given this information, what is the probability that they are identical?
+# Twins can be:
+#    - identical -> 30%
+#        - boys -> 50%
+#        - girls -> 50%
+#    - different -> 70%
+#        - boys -> 25%
+#        - girls -> 25%
+#        - both -> 50%
+# We are looking for p(identical | two girls) =
+#                    p(identical & two girls) / p(two girls) =
+#                    30%*50% / (30%*50% + 70%*25%)
+0.30*0.50 / (0.30*0.50 + 0.70*0.25)
+# 0.4615385
+
+Which of the following is false? Hint: It might be useful to sketch the distributions.
+# The Z score for the median of a left skewed distribution is most likely negative.
+
+Which of the following is true? Hint: It might be useful to sketch the distributions.
+# The Z score for the median is approximately 0 if the distribution is bimodal and symmetric.
+
+
+More than three-quarters of the nation’s colleges and universities now offer online classes, and about 23% of college graduates have taken a course online. 39% of those who have taken a course online believe that online courses provide the same educational value as one taken in person, a view shared by only 27% of those who have not taken an online course. At a coffee shop you overhear a recent college graduate discussing that she doesn’t believe that online courses provide the same educational value as one taken in person. What’s the probability that she has taken an online course before?
+# A college graduate can:
+#    - take a course online -> 23%
+#        - same value -> 39%
+#        - less value -> 61%
+#    - not take a course online -> 77%
+#        - same value -> 27%
+#        - less value -> 73%
+# We are looking for p(course online | same value) =
+#                    p(course online & same value)) / p(same value) =
+#                    23%*39% / (23%*39% + 77%*27%)
+0.23*0.39 / (0.23*0.39 + 0.77*0.27)
+# FALSE: 0.3014113
+# I should have calculated p(course online | NOT same value), which is what was asked
+# p(course online | not same value) =
+# p(course online & not same value)) / p(not same value) =
+# 23%*61% / (23%*61% + 77%*73%)
+0.23*0.61 / (0.23*0.61 + 0.77*0.73)
+# 0.1997437
+
+
+One strange phenomenon that sometimes occurs at U.S. airport security gates is that an otherwise law-abiding passenger is caught with a gun in his/her carry-on bag. Usually the passenger claims he/she forgot to remove the handgun from a rarely-used bag before packing it for airline travel. It’s estimated that every day 3,000,000 gun owners fly on domestic U.S. flights. Suppose the probability a gun owner will mistakenly take a gun to the airport is 0.00001. What is the probability that tomorrow more than 35 domestic passengers will accidentally get caught with a gun at the airport? Choose the closest answer.
+sum(dbinom(36:3000000, size =3000000, prob = 0.00001))
+# 0.1573823
+# Alternative method using normal approximation
+n <- 3000000
+p <- 0.00001
+# Let's check we can use normal approximation
+n * p >= 10
+n * (1-p) >= 10
+# Both are true, here we go!
+m <- n * p
+sd <- sqrt(n * p * (1-p))
+# We look for "more", not "at least" 35 passengers! 
+1-pnorm(q = 36 - 0.5, mean = m, sd = sd)
+# 0.15765
+# Result: 0.18
+
+Which of the following probabilities can be calculated using the normal approximation to the binomial distribution?
+# A September 2011 Gallup poll suggests that 56% of Americans do not have a great deal of confidence in the mass media to report the news fully, accurately, and fairly. What is the probability that in a random sample of 20 people, 10 or more of them have confidence in the mass media?
+n <- 20
+p <- 0.56
+n * p >= 10
+n * (1-p) >= 10
+
+# Roughly 20% of Americans smoke. What is the probability that in a random sample of 40 people at least 5 are smokers?
+n <- 40
+p <- 0.2
+n * p >= 10
+n * (1-p) >= 10
+
+# A 2013 Gallup poll reports that 8% of Americans say the situation in Syria is the most important issue affecting the U.S. In a randomly selected group of 75 Americans, what is the probability that more than 10 of them believe the situation in Syria is the most important issue facing the U.S.?
+n <- 75
+p <- 0.08
+n * p >= 10
+n * (1-p) >= 10
+
+# A clothing store offers store credit cards and only about 17% of the credit card holders are males. If we were to randomly sample 100 store credit card holders to conduct a survey, what is the probability that at most 20 of the sampled individuals would be males?
+n <- 100
+p <- 0.17
+n * p >= 10
+n * (1-p) >= 10
+# Answer: This one
