@@ -1,3 +1,63 @@
+## Question 1: Which of the following explains the phenomenon that while in 10 flips of a fair coin it may not be very surprising to get 8 Heads, it would be very surprising to get 8,000 Heads in 10,000 flips of the coin.
+# Law of large numbers
+
+## Question 2: Shown below are four Venn diagrams. In which of the diagrams does the shaded area represent A and B and C?
+# 
+
+## Question 3: Each choice below shows a suggested probability distribution for letter grades in a class (Possible grades are A, B, C, or D or lower). Determine which is a proper probability distribution.
+# A: 0.30, B: 0.30, C: 0.40, D or lower: 0
+# Because they add up to 1 and there is no negative probability
+
+## Question 3: Which of the following is false about probability distributions?
+# The outcomes listed must be independent.
+
+## Question 4: Assortative mating is a nonrandom mating pattern where individuals with similar genotypes and/or phenotypes mate with one another more frequently than what would be expected under a random mating pattern. Researchers studying this topic collected data on eye colors of 204 Scandinavian men and their female partners. The table below summarizes the results. For simplicity, assume heterosexual relationships. What is the probability that a randomly chosen couple is comprised of a male and female with blue eyes?
+# WRONG: (108+114−78)/204
+# Which is couples with male with blue eyes, plus couples with female with blue eyes, minus couples with both having blue eyes (because they are accounted for twice before) 
+
+## Question 4: Assortative mating is a nonrandom mating pattern where individuals with similar genotypes and/or phenotypes mate with one another more frequently than what would be expected under a random mating pattern. Researchers studying this topic collected data on eye colors of 204 Scandinavian men and their female partners. The table below summarizes the results. For simplicity, assume heterosexual relationships. What is the probability that a randomly chosen male respondent with blue eyes has a partner with blue eyes?
+# 78/114
+
+## Question 4: Last semester, out of 170 students taking a particular statistics class, 71 students were “majoring” in social sciences and 53 students were majoring in pre-medical studies. There were 6 students who were majoring in both pre-medical studies and social sciences. What is the probability that a randomly chosen student is majoring in social sciences, given that s/he is majoring in pre-medical studies?
+# Students can be:
+#    - social science -> 71
+#        - only -> 65
+#        - and pre-medical -> 6
+#    - pre-medical -> 53
+#        - only -> 47
+#        - and social science -> 6
+# We are looking for p(both | pre-medical) =
+#                    p(both & pre-medical) / p(pre-medical) =
+#                    6 / (6+47) = 6/53
+# 6/53
+
+## Question 5: Which of the following is false?
+# If two events (both with probability greater than 0) are mutually exclusive, they could be independent.
+# 2nd round FALSE: Two mutually exclusive outcomes (of the same event) cannot occur at the same time.
+# 3rd round: FALSE: Two complementary outcomes (of the same event) cannot occur at the same time.
+
+## Question 6: Heights of 10 year-olds, regardless of gender, closely follow a normal distribution with mean 55 inches and standard deviation 6 inches. Which of the following is true?
+# A normal probability plot of heights of a random sample of 500 10 year- olds people should show a fairly straight line.
+
+## Question 6: Suppose IQ scores are normally distributed with mean 100 and standard deviation 10. Which of the following is false?
+# FALSE: An IQ score greater than 130 is highly unlikely, but not impossible.
+
+## Question 6: Suppose that scores on a national entrance exam are normally distributed with mean 1000 and standard deviation 100. Which of the following is false?
+# We would expect the number of people scoring above 1200 to be more than the number of people scoring below 900.
+
+## Question 7: The National Vaccine Information Center estimates that 90% of Americans have had the disease chickenpox by the time they reach adulthood. What is the probability that exactly 92 out of 100 randomly sampled American adults had chickenpox during childhood?
+dbinom(x = 92, size = 100, prob = 0.9)
+# 0.114823
+
+## Question 8: About 24% of flights departing from New York’s John F. Kennedy International Airport were delayed in 2009. Assuming that the chance of a flight being delayed has stayed constant at 24%, we are interested in finding the probability of 10 out of the next 100 departing flights being delayed. Noting that if one flight is delayed, the next flight is more likely to be delayed, which of the following statements is correct?
+# We cannot calculate this probability using the binomial distribution since whether or not one flight is delayed is not independent of another.
+
+## Question 8: You are about to take a multi-day tour through a national park which is famous for its wildlife. The tour guide tells you that on any given day there’s a 61% chance that a visitor will see at least one “big game” animal, and a 39% chance they’ll see no big game animals; when the tour guide says “big game”, he refers to either a moose or a bear. The guide assures you that big game sightings on a single day are independent of any other day’s sightings. Given the information from the tour guide, which of the following calculations cannot be performed using a binomial distribution?
+# Calculate the probability that you see at least 4 big game animals on the first day of a 5-day trip.
+
+## Question 9: Which of the following, on its own, is the least useful method for assessing if the data follow a normal distribution?
+# Check if the mean and median are equal.
+
 
 At any given time about 5.5% of women (age 15-45) are pregnant. A home pregnancy test is accurate 99% of the time if the woman taking the test is actually pregnant and 99.5% accurate if the woman is not pregnant. If the test yields a positive result, what is the posterior probability of the hypothesis that the woman is pregnant?
 # Let Probability that women is pregnant, P(A) = 0.055
